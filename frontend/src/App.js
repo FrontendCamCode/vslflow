@@ -294,7 +294,7 @@ function App() {
             <BlockTypeSelector addNewBlock={addNewBlock} />
             
             <DragDropContext onDragEnd={handleDragEnd}>
-              <Droppable droppableId="script-blocks">
+              <Droppable droppableId="script-blocks" isDropDisabled={false}>
                 {(provided) => (
                   <div
                     {...provided.droppableProps}
