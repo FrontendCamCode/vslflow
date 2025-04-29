@@ -186,13 +186,18 @@ function App() {
 
   // Handle drag-and-drop reordering
   const handleDragEnd = (result) => {
-    if (!result.destination) return;
+    // If no destination, or dropped in the same spot, do nothing
+    if (!result.destination || 
+        (result.destination.index === result.source.index && 
+         result.destination.droppableId === result.source.droppableId)) {
+      return;
+    }
     
-    const items = Array.from(blocks);
-    const [reorderedItem] = items.splice(result.source.index, 1);
-    items.splice(result.destination.index, 0, reorderedItem);
+    const newBlocks = [...blocks];
+    const [movedBlock] = newBlocks.splice(result.source.index, 1);
+    newBlocks.splice(result.destination.index, 0, movedBlock);
     
-    setBlocks(items);
+    setBlocks(newBlocks);
   };
 
   // Add a new script block
