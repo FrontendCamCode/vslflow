@@ -108,13 +108,7 @@ const ScriptBlock = ({ block, index, updateBlockContent, deleteBlock, toggleAiPa
             </div>
             
             {block.isAiOpen && (
-              <motion.div 
-                className="p-4 border-t border-glass-100 bg-gray-900"
-                initial={{ height: 0, opacity: 0 }}
-                animate={{ height: "auto", opacity: 1 }}
-                exit={{ height: 0, opacity: 0 }}
-                transition={{ duration: 0.3 }}
-              >
+              <div className="p-4 border-t border-glass-100 bg-gray-900">
                 <h4 className="text-sm text-gray-300 mb-2">AI Prompt</h4>
                 <textarea
                   className="glass-input w-full mb-3"
@@ -140,7 +134,7 @@ const ScriptBlock = ({ block, index, updateBlockContent, deleteBlock, toggleAiPa
                     </>
                   )}
                 </button>
-              </motion.div>
+              </div>
             )}
           </motion.div>
         </div>
